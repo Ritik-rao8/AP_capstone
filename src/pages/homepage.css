@@ -1,0 +1,367 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Root Variables */
+:root {
+    --color-black: #0a0a0a;
+    --color-dark: #141414;
+    --color-gold: #f7b731;
+    --color-orange: #ff8c00;
+    --color-white: #ffffff;
+    --color-light-gray: #eaeaea;
+    --color-dark-gray: #1a1a1a;
+}
+
+/* ============ HOMEPAGE CONTAINER ============ */
+.homepage {
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-black) 0%, var(--color-dark) 100%);
+}
+
+/* ============ PARTICLE BACKGROUND ============ */
+.particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(247, 183, 49, 0.3);
+    border-radius: 50%;
+    animation: float-up infinite linear;
+    box-shadow: 0 0 10px rgba(247, 183, 49, 0.5);
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(0);
+        opacity: 0;
+    }
+}
+
+/* ============ HERO SECTION ============ */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Hero Background */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-black) 0%, #1a1a2e 100%);
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(247, 183, 49, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 140, 0, 0.1) 0%, transparent 50%);
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: -1;
+}
+
+
+
+/* ============ HERO CONTENT ============ */
+.hero-content {
+    position: relative;
+    z-index: 5;
+    max-width: 900px;
+    width: 100%;
+    padding: 40px 20px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Main Title */
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(36px, 8vw, 72px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--color-white);
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 30px rgba(247, 183, 49, 0.3);
+    animation: slideDownTitle 1s ease-out;
+}
+
+@keyframes slideDownTitle {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(247, 183, 49, 0.4));
+}
+
+/* Subtitle */
+.hero-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(14px, 4vw, 18px);
+    font-weight: 300;
+    color: var(--color-light-gray);
+    max-width: 600px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* ============ BUTTONS ============ */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    animation: fadeInUp 1.4s ease-out;
+}
+
+.btn {
+    position: relative;
+    padding: 16px 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1;
+}
+
+/* Primary Button */
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-orange) 100%);
+    color: var(--color-black);
+    box-shadow: 0 0 20px rgba(247, 183, 49, 0.5), 0 0 40px rgba(247, 183, 49, 0.2);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 0 30px rgba(247, 183, 49, 0.8), 0 0 60px rgba(247, 183, 49, 0.4);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: transparent;
+    color: var(--color-gold);
+    border: 2px solid var(--color-gold);
+    box-shadow: inset 0 0 20px rgba(247, 183, 49, 0.1), 0 0 20px rgba(247, 183, 49, 0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(247, 183, 49, 0.1);
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: inset 0 0 20px rgba(247, 183, 49, 0.2), 0 0 30px rgba(247, 183, 49, 0.6);
+}
+
+.btn-secondary:active {
+    transform: scale(0.98);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.5) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn:hover .btn-glow {
+    opacity: 1;
+}
+
+/* ============ STATS TAGLINE ============ */
+.hero-stats {
+    margin-top: 24px;
+    animation: fadeInUp 1.6s ease-out;
+}
+
+.stats-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: rgba(247, 183, 49, 0.7);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* ============ SCROLL INDICATOR ============ */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: pulse-indicator 2s infinite;
+}
+
+.scroll-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(247, 183, 49, 0.6);
+    animation: bounce-down 2s infinite;
+}
+
+@keyframes bounce-down {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse-indicator {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+@media (max-width: 768px) {
+    /* Adjust title size */
+    .hero-title {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    /* Stack buttons vertically */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px 32px;
+        justify-content: center;
+    }
+
+    /* Subtitle adjustments */
+    .hero-subtitle {
+        font-size: 14px;
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    .hero-title {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+        font-size: 12px;
+        margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    .stats-text {
+        font-size: 12px;
+    }
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes glow-pulse {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(247, 183, 49, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(247, 183, 49, 0.8);
+    }
+}
+
+/* Apply subtle glow animation to title */
+.hero-title {
+    animation: fadeInUp 1s ease-out, glow-pulse 3s ease-in-out 1.5s infinite;
+}
