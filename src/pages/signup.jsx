@@ -9,6 +9,7 @@ const Signup=()=>{
     const [confirmPassword,setConfirmPassword]=useState('');
     const [loading,setLoading]=useState(false);
     const [error,setError]=useState('');
+    const [success,setSuccess]=useState('');
     const [showPassword,setShowPassword]=useState(false);
 
     const [showConfirmPassword,setShowConfirmPassword]=useState(false);
@@ -16,6 +17,7 @@ const Signup=()=>{
     const handleSubmit=async(e)=>{
         e.preventDefault();
         setError('');
+        setSuccess('');
 
         if (!name.trim()) {
             setError('Name is required');
@@ -62,7 +64,13 @@ const Signup=()=>{
                 throw new Error(data.message || 'Signup failed');
             }
 
+            setSuccess('Account created successfully! Redirecting to login...');
             console.log('Signup successful:',data);
+            
+            // Redirect to login after 2 seconds
+            setTimeout(() => {
+                navigate('/login');
+            }, 2000);
         } catch (err) {
             setError(err.message||'An error occurred during signup');
         } finally {
@@ -81,6 +89,12 @@ const Signup=()=>{
                 {error && (
                     <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
                         <p className="text-red-600 text-sm">{error}</p>
+                    </div>
+                )}
+
+                {success && (
+                    <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg">
+                        <p className="text-green-600 text-sm">{success}</p>
                     </div>
                 )}
 
@@ -131,7 +145,7 @@ const Signup=()=>{
                                 onClick={()=>setShowPassword(!showPassword)}
                                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 transition"
                             >
-                                {showPassword?'🙈':'👁️'}
+                                {showPassword?'🔒':'🔓'}
                             </button>
                         </div>
                     </div>
@@ -153,7 +167,7 @@ const Signup=()=>{
                                 onClick={()=>setShowConfirmPassword(!showConfirmPassword)}
                                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 transition"
                             >
-                                {showConfirmPassword?'🙈':'👁️'}
+                                {showConfirmPassword?'🔒':'🔓'}
                             </button>
                         </div>
                     </div>
