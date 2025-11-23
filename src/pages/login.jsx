@@ -9,6 +9,7 @@ const Login=()=>{
     const [password,setPassword]=useState('');
     const [loading,setLoading]=useState(false);
     const [error,setError]=useState('');
+    const [success,setSuccess]=useState('');
     const [showPassword,setShowPassword]=useState(false);
     const [step,setStep]=useState(1);
 
@@ -31,6 +32,7 @@ const Login=()=>{
     const handlePasswordSubmit=async(e)=>{
         e.preventDefault();
         setError('');
+        setSuccess('');
 
         if (!password.trim()) {
             setError('Password is required');
@@ -57,7 +59,12 @@ const Login=()=>{
                 throw new Error(data.message || 'Login failed');
             }
 
+            setSuccess('Login successful! Redirecting to home...');
             console.log('Login successful:',data);
+
+            setTimeout(() => {
+                navigate('/');
+            }, 2000);
         } catch (err) {
             setError(err.message||'An error occurred during login');
         } finally {
@@ -141,6 +148,12 @@ const Login=()=>{
                 {error && (
                     <div className="mb-4 p-3 bg-red-900/30 border border-red-700 rounded-lg">
                         <p className="text-red-400 text-sm">{error}</p>
+                    </div>
+                )}
+
+                {success && (
+                    <div className="mb-4 p-3 bg-green-900/30 border border-green-700 rounded-lg">
+                        <p className="text-green-400 text-sm">{success}</p>
                     </div>
                 )}
 
