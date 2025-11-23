@@ -1,7 +1,6 @@
-@import "tailwindcss";
-
-/* Import Google Fonts - Orbitron and Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
 
 /* Custom Animations for Hero Section */
 @keyframes fade-in-up {
@@ -90,13 +89,6 @@
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
-}
-
-/* Reset Default Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 body {
