@@ -52,5 +52,3 @@ Players can create their own gaming profiles, browse others, and share gameplay 
 ## 🔗 Related Repository
 The backend source code and API endpoints are hosted in a separate repository:
 👉 **Backend Repository:** [https://github.com/Ritik-rao8/AP_capstone_backend](https://github.com/Ritik-rao8/AP_capstone_backend)
-
----
