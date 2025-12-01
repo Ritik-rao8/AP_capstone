@@ -59,11 +59,16 @@ const Login=()=>{
                 throw new Error(data.message || 'Login failed');
             }
 
+            // Store token and user data in localStorage
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
+
             setSuccess('Login successful! Redirecting to home...');
             console.log('Login successful:',data);
 
             setTimeout(() => {
                 navigate('/');
+                window.location.reload(); // Refresh to update navbar
             }, 2000);
         } catch (err) {
             setError(err.message||'An error occurred during login');
@@ -118,7 +123,9 @@ const Login=()=>{
 
                     <button
                         type="button"
-                        onClick={()=>{}}
+                        onClick={()=>{
+                            window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/google`;
+                        }}
                         className="w-full mb-6 py-2 px-4 border border-gray-700 rounded-lg font-medium text-gray-300 hover:bg-gray-900 transition flex items-center justify-center gap-3"
                         style={{backgroundColor:'#121212'}}
                     >

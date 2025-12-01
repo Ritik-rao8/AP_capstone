@@ -75,12 +75,17 @@ const Signup=()=>{
                 throw new Error(data.message || 'Signup failed');
             }
 
-            setSuccess('Account created successfully! Redirecting to login...');
+            // Store token and user data in localStorage
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
+
+            setSuccess('Account created successfully! Redirecting to home...');
             console.log('Signup successful:',data);
             
 
             setTimeout(() => {
-                navigate('/login');
+                navigate('/');
+                window.location.reload(); // Refresh to update navbar
             }, 2000);
         } catch (err) {
             setError(err.message||'An error occurred during signup');
@@ -150,7 +155,9 @@ const Signup=()=>{
 
                     <button
                         type="button"
-                        onClick={()=>{}}
+                        onClick={()=>{
+                            window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/google`;
+                        }}
                         className="w-full mb-6 py-2 px-4 border border-gray-700 rounded-lg font-medium text-gray-300 hover:bg-gray-900 transition flex items-center justify-center gap-3"
                         style={{backgroundColor:'#121212'}}
                     >
