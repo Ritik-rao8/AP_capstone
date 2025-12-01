@@ -61,7 +61,7 @@ const Signup=()=>{
 
         try {
             setLoading(true);
-            const response=await fetch(`${import.meta.env.VITE_API_URL}/signup`,{
+            const response=await fetch(`${import.meta.env.VITE_API_URL}/api/auth/signup`,{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json',
@@ -69,7 +69,14 @@ const Signup=()=>{
                 body:JSON.stringify({name,email,password}),
             });
 
-            const data=await response.json();
+            let data
+            const contentType=response.headers.get('content-type')||''
+            if(contentType.includes('application/json')){
+                data=await response.json()
+            }else{
+                const text=await response.text()
+                throw new Error('Server returned unexpected response: '+text)
+            }
 
             if(!response.ok){
                 throw new Error(data.message || 'Signup failed');

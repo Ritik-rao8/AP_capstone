@@ -45,7 +45,7 @@ const Login=()=>{
 
         try {
             setLoading(true);
-            const response=await fetch(`${import.meta.env.VITE_API_URL}/api/login`,{
+            const response=await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`,{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json',
@@ -53,7 +53,14 @@ const Login=()=>{
                 body:JSON.stringify({email,password}),
             });
 
-            const data=await response.json();
+            let data
+            const contentType=response.headers.get('content-type')||''
+            if(contentType.includes('application/json')){
+                data=await response.json()
+            }else{
+                const text=await response.text()
+                throw new Error('Server returned unexpected response: '+text)
+            }
 
             if (!response.ok) {
                 throw new Error(data.message || 'Login failed');
