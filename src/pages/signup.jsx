@@ -61,7 +61,7 @@ const Signup=()=>{
 
         try {
             setLoading(true);
-            const response=await fetch(`${import.meta.env.VITE_API_URL}/api/signup`,{
+            const response=await fetch(`${import.meta.env.VITE_API_URL}/signup`,{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json',
