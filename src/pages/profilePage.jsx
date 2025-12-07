@@ -35,7 +35,7 @@ export default function ProfilePage(){
     }
 
     return (
-        <div className="min-h-screen pt-20 py-10 px-4 bg-[#0a0a0a]">
+        <div className="min-h-screen pt-28 py-10 px-4 bg-[#0a0a0a]">
             <div className="max-w-6xl mx-auto">
                 <h1 className="text-white text-3xl font-bold mb-8">Player Profile</h1>
                 <div className="flex flex-col md:flex-row gap-6">

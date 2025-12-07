@@ -5,6 +5,7 @@ import './App.css'
 import HomePage from './pages/homePage'
 import ProfilePage from './pages/profilePage'
 import FindTeammatesPage from './findteammates/FindTeammatesPage'
+import PlayerProfilePage from './pages/PlayerProfilePage'
 import Login from './pages/login'
 import Signup from './pages/signup'
 import Navbar from './components/Navbar'
@@ -18,7 +19,8 @@ function App() {
       <Routes>
         <Route path="/" element={<><Navbar /><HomePage /><Footer /></>} />
         <Route path="/profile" element={<><Navbar /><ProfilePage /></>} />
-        <Route path="/find-players" element={<><Navbar /><FindTeammatesPage /></>} />
+        <Route path="/find-players" element={<><Navbar /><FindTeammatesPage /><Footer /></>} />
+        <Route path="/player/:id" element={<><Navbar /><PlayerProfilePage /><Footer /></>} />
 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
