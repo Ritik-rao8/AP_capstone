@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 export default function CTAFindTeammates(){
     return (
-        <section className="w-full bg-[#0a0a0a] py-10">
+        <section className="w-full bg-[#0a0a0a] py-19">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="relative bg-[#141414] border border-[#f7b731]/30 rounded-xl p-12 text-center overflow-hidden">
                     <div className="absolute inset-0 opacity-10" style={{background:'radial-gradient(circle at center,#f7b731 0%,transparent 70%)'}}></div>

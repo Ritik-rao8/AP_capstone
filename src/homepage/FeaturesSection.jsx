@@ -16,23 +16,18 @@ export default function FeaturesSection(){
             icon:'📚',
             title:'Learn & Improve',
             description:'Access guides, tips, and pro-level strategies in the Knowledge Hub.'
-        },
-        {
-            icon:'🎯',
-            title:'Smart Filters & Sorting',
-            description:'Quickly find teammates with advanced filtering and ranking tools.'
         }
     ]
 
     return (
-        <section className="w-full bg-[#0a0a0a] py-10">
+        <section className="w-full bg-[#0a0a0a] py-20">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Why Choose BGMI Hub?</h2>
                     <p className="text-gray-400 text-sm md:text-base">Everything you need to team up and dominate the battleground.</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {features.map((feature,index)=>(
                         <div key={index} className="bg-[#141414] border border-[#f7b731]/20 rounded-lg p-6 hover:scale-105 hover:border-[#f7b731] transition transform">
                             <div className="text-4xl mb-4">{feature.icon}</div>
