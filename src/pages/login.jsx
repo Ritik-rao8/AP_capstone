@@ -76,7 +76,7 @@ const Login=()=>{
             setTimeout(() => {
                 navigate('/');
                 window.location.reload(); // Refresh to update navbar
-            }, 2000);
+            }, 1000);
         } catch (err) {
             setError(err.message||'An error occurred during login');
         } finally {
