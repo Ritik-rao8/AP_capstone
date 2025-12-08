@@ -52,6 +52,13 @@ function Navbar() {
         setUser(null);
         setShowProfileMenu(false);
         navigate('/');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const handleNavigation = (path) => {
+        navigate(path);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setIsMenuOpen(false);
     };
 
     return (
@@ -61,19 +68,19 @@ function Navbar() {
                 <nav className={`max-w-7xl mx-auto rounded-full bg-black/30 backdrop-blur-md border border-white/10 shadow-lg transition-all duration-300 ${scrolled ? 'shadow-2xl bg-black/40' : ''}`}>
                 <div className="px-6 h-16 flex items-center justify-between">
                     <div className="flex items-center">
-                        <Link to="/" className="text-white font-bold text-xl hover:scale-105 transition-transform duration-200">
+                        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-white font-bold text-xl hover:scale-105 transition-transform duration-200">
                             BGMI <span className="text-[#f7b731]">HUB</span>
                         </Link>
                     </div>
 
                     <div className="hidden md:flex items-center gap-8">
-                        <Link to="/" className="text-gray-200 hover:text-[#f7b731] transition-colors duration-200">
+                        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-gray-200 hover:text-[#f7b731] transition-colors duration-200">
                             Home
                         </Link>
-                        <Link to="/find-players" className="text-gray-200 hover:text-[#f7b731] transition-colors duration-200">
+                        <Link to="/find-players" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-gray-200 hover:text-[#f7b731] transition-colors duration-200">
                             Find Teammates
                         </Link>
-                        <Link to="/knowledge" className="text-gray-200 hover:text-[#f7b731] transition-colors duration-200">
+                        <Link to="/knowledge" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-gray-200 hover:text-[#f7b731] transition-colors duration-200">
                             Knowledge Hub
                         </Link>
                     </div>
@@ -94,7 +101,10 @@ function Navbar() {
                                         <Link 
                                             to="/profile" 
                                             className="block px-4 py-2 text-gray-200 hover:bg-white/5 hover:text-white transition-all duration-200 rounded-lg mx-2"
-                                            onClick={() => setShowProfileMenu(false)}
+                                            onClick={() => {
+                                                setShowProfileMenu(false);
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }}
                                         >
                                             View Profile
                                         </Link>
@@ -110,11 +120,12 @@ function Navbar() {
                             </div>
                         ) : (
                             <>
-                                <Link to="/login" className="text-gray-200 hover:text-white transition-colors duration-200 px-4 py-2">
+                                <Link to="/login" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-gray-200 hover:text-white transition-colors duration-200 px-4 py-2">
                                     Login
                                 </Link>
                                 <Link 
-                                    to="/signup" 
+                                    to="/signup"
+                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                                     className="px-5 py-2 bg-[#f7b731] text-black font-medium rounded-full hover:bg-[#f7b731]/90 hover:scale-105 transition-all duration-200 shadow-lg"
                                 >
                                     Signup
@@ -143,21 +154,30 @@ function Navbar() {
                             <Link 
                                 to="/" 
                                 className="text-gray-200 hover:text-[#f7b731] transition-colors duration-200 py-2"
-                                onClick={()=>setIsMenuOpen(false)}
+                                onClick={()=>{
+                                    setIsMenuOpen(false);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
                             >
                                 Home
                             </Link>
                             <Link 
                                 to="/find-players" 
                                 className="text-gray-200 hover:text-[#f7b731] transition-colors duration-200 py-2"
-                                onClick={()=>setIsMenuOpen(false)}
+                                onClick={()=>{
+                                    setIsMenuOpen(false);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
                             >
                                 Find Teammates
                             </Link>
                             <Link 
                                 to="/knowledge" 
                                 className="text-gray-200 hover:text-[#f7b731] transition-colors duration-200 py-2"
-                                onClick={()=>setIsMenuOpen(false)}
+                                onClick={()=>{
+                                    setIsMenuOpen(false);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
                             >
                                 Knowledge Hub
                             </Link>
@@ -171,7 +191,10 @@ function Navbar() {
                                         <Link 
                                             to="/profile" 
                                             className="text-gray-200 hover:text-white transition-colors duration-200 py-2"
-                                            onClick={()=>setIsMenuOpen(false)}
+                                            onClick={()=>{
+                                                setIsMenuOpen(false);
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }}
                                         >
                                             View Profile
                                         </Link>
@@ -191,14 +214,20 @@ function Navbar() {
                                         <Link 
                                             to="/login" 
                                             className="text-gray-200 hover:text-white transition-colors duration-200 py-2"
-                                            onClick={()=>setIsMenuOpen(false)}
+                                            onClick={()=>{
+                                                setIsMenuOpen(false);
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }}
                                         >
                                             Login
                                         </Link>
                                         <Link 
                                             to="/signup" 
                                             className="px-5 py-2 bg-[#f7b731] text-black font-medium rounded-full hover:bg-[#f7b731]/90 transition-all duration-200 text-center shadow-lg"
-                                            onClick={()=>setIsMenuOpen(false)}
+                                            onClick={()=>{
+                                                setIsMenuOpen(false);
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }}
                                         >
                                             Signup
                                         </Link>

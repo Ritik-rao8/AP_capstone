@@ -24,10 +24,10 @@ export default function Footer(){
                     <div className="text-center md:text-left">
                         <h3 className="text-lg font-semibold mb-4 text-white">Support & Legal</h3>
                         <div className="flex flex-col space-y-2">
-                            <Link to="/" className="text-sm hover:text-[#f7b731] hover:drop-shadow-[0_0_8px_rgba(247,183,49,0.4)] transition">Help / FAQ</Link>
-                            <Link to="/" className="text-sm hover:text-[#f7b731] hover:drop-shadow-[0_0_8px_rgba(247,183,49,0.4)] transition">Contact Support</Link>
-                            <Link to="/" className="text-sm hover:text-[#f7b731] hover:drop-shadow-[0_0_8px_rgba(247,183,49,0.4)] transition">Privacy Policy</Link>
-                            <Link to="/" className="text-sm hover:text-[#f7b731] hover:drop-shadow-[0_0_8px_rgba(247,183,49,0.4)] transition">Terms & Conditions</Link>
+                            <span className="text-sm text-gray-300 cursor-default">Help / FAQ</span>
+                            <span className="text-sm text-gray-300 cursor-default">Contact Support</span>
+                            <span className="text-sm text-gray-300 cursor-default">Privacy Policy</span>
+                            <span className="text-sm text-gray-300 cursor-default">Terms & Conditions</span>
                         </div>
                     </div>
                 </div>
